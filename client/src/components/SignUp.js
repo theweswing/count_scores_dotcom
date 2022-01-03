@@ -23,7 +23,7 @@ const SignUp = () => {
   const [passwordRepeat, setPasswordRepeat] = useState("");
   const [passwordMatch, setPasswordMatch] = useState(true);
   const [setSignUp, setSetSignUp] = useState("");
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState("");
 
   const checkEmail = () => {
     if (
@@ -33,6 +33,7 @@ const SignUp = () => {
           /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         )
     ) {
+      setEmailValid(true);
       return emailValid;
     } else {
       setEmailValid((emailValid) => !emailValid);
@@ -41,6 +42,7 @@ const SignUp = () => {
 
   const checkPassword = () => {
     if (password === passwordRepeat) {
+      setPasswordMatch(true);
       return passwordMatch;
     } else {
       setPasswordMatch((passwordMatch) => !passwordMatch);
@@ -52,7 +54,7 @@ const SignUp = () => {
     checkEmail();
     checkPassword();
 
-    if (checkEmail && !checkPassword) {
+    if (checkEmail && checkPassword) {
       const user = {
         firstname,
         lastname,
@@ -60,17 +62,31 @@ const SignUp = () => {
         username,
         password,
       };
-      fetch("/signup", {
+
+      console.log(user);
+
+      fetch("http://localhost:3000/signup", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(user),
       }).then((res) => {
         if (res.ok) {
-          res.json().then();
+          res.json().then((data) => console.log(data));
         } else {
-          res.json().then((e) => setErrors(Object.entries(e.error).flat()));
+          res.json().then((errors) => console.log(errors));
         }
       });
+
+      setFirstname("");
+      setLastname("");
+      setEmail("");
+      setUsername("");
+      setPassword("");
+      setPasswordRepeat("");
+
+      e.target.reset();
     }
   };
 

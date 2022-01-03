@@ -2,9 +2,15 @@ class UsersController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
 
+  def create
+    new_user = User.create!(user_params)
+    render json: new_user, status: :created
+  end
+
   def index
     render json: User.all, status: :ok
   end
+
   def show
     user = User.find_by(id: session[:user_id])
     if user
@@ -13,10 +19,7 @@ class UsersController < ApplicationController
       render json: { error: 'Not authorized' }, status: :unauthorized
     end
   end
-  def create
-    new_user = User.create!(user_params)
-    render json: new_user, status: :created
-  end
+
   def update
     found_user = find_user
     found_user.update!(user_params)

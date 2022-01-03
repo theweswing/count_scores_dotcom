@@ -26,6 +26,7 @@ const Login = () => {
           /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         )
     ) {
+      setEmailValid(true);
       return emailValid;
     } else {
       setEmailValid((emailValid) => !emailValid);
@@ -39,17 +40,21 @@ const Login = () => {
       email,
       password,
     };
-    fetch("/users", {
+    fetch("http://localhost:3000/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),
     }).then((res) => {
       if (res.ok) {
-        res.json().then();
+        res.json().then((data) => console.log(data));
       } else {
-        res.json().then((e) => setErrors(Object.entries(e.error).flat()));
+        res.json().then((errors) => console.log(errors));
       }
     });
+
+    setEmail("");
+    setPassword("");
+    e.target.reset();
   };
 
   return (
