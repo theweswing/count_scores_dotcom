@@ -11,7 +11,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const Login = () => {
+const Login = ({setUser}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailValid, setEmailValid] = useState(true);
@@ -46,7 +46,7 @@ const Login = () => {
       body: JSON.stringify(user),
     }).then((res) => {
       if (res.ok) {
-        res.json().then((data) => console.log(data));
+        res.json().then((data) => setUser(data));
       } else {
         res.json().then((errors) => console.log(errors));
       }
