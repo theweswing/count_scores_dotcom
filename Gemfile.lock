@@ -48,6 +48,7 @@ GEM
     activerecord (7.0.0)
       activemodel (= 7.0.0)
       activesupport (= 7.0.0)
+    activerecord-reset-pk-sequence (0.2.1)
     activestorage (7.0.0)
       actionpack (= 7.0.0)
       activejob (= 7.0.0)
@@ -142,6 +143,7 @@ PLATFORMS
   x86_64-darwin-21
 
 DEPENDENCIES
+  activerecord-reset-pk-sequence
   bcrypt (~> 3.1.7)
   debug
   pg (~> 1.1)

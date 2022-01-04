@@ -56,8 +56,8 @@ const SignUp = () => {
 
     if (checkEmail && checkPassword) {
       const user = {
-        firstname,
-        lastname,
+        first_name:firstname,
+        last_name:lastname,
         email,
         username,
         password,
