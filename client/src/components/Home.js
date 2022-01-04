@@ -3,13 +3,11 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
-import GamesContainer from "./GameContainer";
+import GameContainer from "./GameContainer";
 
 const Home = ({ user }) => {
   const [userGames, setUserGames] = useState([]);
   const [clickFind, setClickFind] = useState(true);
-
-  let game_ids = [];
 
   const handleFindGames = () => {
     fetch(`http://localhost:3000/users/${user.id}/games`)
@@ -20,15 +18,9 @@ const Home = ({ user }) => {
       });
   };
 
-  const mapGames = userGames.map((game) => {
-    if (game_ids.includes(game.id) === false) {
-      game_ids.push(game.id);
-      return <GamesContainer key={game.id} id={game.id} name={game.name} />;
-    }
-  });
-
   return (
     <div>
+      <h2>Welcome Back, {user.first_name}!</h2>
       {clickFind ? (
         <Card sx={{ maxWidth: 275 }}>
           <CardContent align="center">
@@ -43,22 +35,23 @@ const Home = ({ user }) => {
           </CardContent>
         </Card>
       ) : (
-        mapGames
+        <GameContainer user={user} userGames={userGames} />
       )}
 
-      <br></br>
-      <Card sx={{ maxWidth: 275 }}>
-        <CardContent align="center">
-          <Typography variant="h5" component="div">
-            Add New Game
-          </Typography>
-        </CardContent>
-        <CardContent align="center">
-          <Button size="small" align="right">
-            Add Game
-          </Button>
-        </CardContent>
-      </Card>
+      {clickFind ? (
+        <Card sx={{ maxWidth: 275 }}>
+          <CardContent align="center">
+            <Typography variant="h5" component="div">
+              Add New Game
+            </Typography>
+          </CardContent>
+          <CardContent align="center">
+            <Button size="small" align="right">
+              Add Game
+            </Button>
+          </CardContent>
+        </Card>
+      ) : null}
     </div>
   );
 };

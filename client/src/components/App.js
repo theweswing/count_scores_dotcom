@@ -5,6 +5,7 @@ import Login from "./Login";
 import SignUp from "./SignUp";
 import Home from "./Home";
 import GamesContainer from "./GameContainer";
+import MatchContainer from "./MatchContainer";
 
 const App = () => {
   const [user, setUser] = useState("");
@@ -16,10 +17,10 @@ const App = () => {
       }
     });
   }, []);
+
   if (user) {
     return (
       <div className="app">
-        <h2>Welcome Back, {user.username}</h2>
         <Home user={user} />
         <Switch>
           <Route exact path="/home">
@@ -27,6 +28,9 @@ const App = () => {
           </Route>
           <Route exact path="/games">
             <GamesContainer />
+          </Route>
+          <Route exact path="/matches">
+            <MatchContainer />
           </Route>
         </Switch>
       </div>
@@ -37,12 +41,6 @@ const App = () => {
         <Switch>
           <Route exact path="/signup">
             <SignUp />
-          </Route>
-          <Route exact path="/home">
-            <Home />
-          </Route>
-          <Route exact path="/games">
-            <GamesContainer />
           </Route>
           <Route exact path="/">
             <Login setUser={setUser} />

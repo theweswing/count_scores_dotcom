@@ -1,31 +1,31 @@
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Matches from "./Matches";
+import { useState } from "react";
+import GameCard from "./GameCard";
+import MatchContainer from "./MatchContainer";
 
-const GamesContainer = ({ name }) => {
-  return (
-    <div>
-      <Card sx={{ maxWidth: 275 }}>
-        <CardContent align="center">
-          <Typography variant="h5" component="div">
-            {name}
-          </Typography>
-        </CardContent>
-        <CardContent align="center">
-          <Button size="small" align="right">
-            Select Game
-          </Button>
-        </CardContent>
-      </Card>
+const GameContainer = ({ user, userGames }) => {
+  const [selectedGame, setSelectedGame] = useState("");
 
-      <div>
-        <br></br>
-        <Matches />
-      </div>
-    </div>
-  );
+  let game_ids = [];
+  const mapGames = userGames.map((game) => {
+    if (game_ids.includes(game.id) === false) {
+      game_ids.push(game.id);
+      return (
+        <GameCard
+          key={game.id}
+          id={game.id}
+          user={user}
+          game={game}
+          setSelectedGame={setSelectedGame}
+        />
+      );
+    }
+  });
+
+  if (selectedGame == "") {
+    return <div>{mapGames}</div>;
+  } else {
+    return <MatchContainer selectedGame={selectedGame} user={user} />;
+  }
 };
 
-export default GamesContainer;
+export default GameContainer;
