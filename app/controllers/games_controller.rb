@@ -3,12 +3,20 @@ class GamesController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
 
   def index
-    render json: Game.all, status: :ok
+    if params[:user_id]
+      user = User.find(params[:user_id])
+      games = user.games
+    else
+      games = Game.all
+    end
+    render json: games, status: :ok
   end
+
   def show
     found_game = Game.find(params[:id])
     render json: found_game, status: :ok
   end
+
   def create
     new_game = Game.create!(game_params)
     render json: new_game, status: :created

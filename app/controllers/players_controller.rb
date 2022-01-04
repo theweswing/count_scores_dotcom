@@ -11,19 +11,23 @@ class PlayersController < ApplicationController
     end
     render json: players, status: :ok
   end
+
   def show
     found_player = find_player
     render json: found_player, status: :ok
   end
+
   def create
     new_player = Player.create!(player_params)
     render json: new_player, status: :created
   end
+
   def update
     found_player = find_player
     found_player.update!(player_params)
     render json: found_player, status: :accepted
   end
+
   def destroy
     found_player = find_player
     found_player.destroy

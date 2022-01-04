@@ -20,6 +20,7 @@ const App = () => {
     return (
       <div className="app">
         <h2>Welcome Back, {user.username}</h2>
+        <Home user={user} />
         <Switch>
           <Route exact path="/home">
             <Home />

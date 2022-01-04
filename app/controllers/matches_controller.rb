@@ -3,16 +3,19 @@ class MatchesController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
 
   def index
-    render json: Match.all, status: :ok
+    render json: Match.all, include: :players, status: :ok
   end
+
   def show
     found_match = find_match
     render json: found_match, status: :ok
   end
+
   def create
     new_match = Match.create!(match_params)
     render json: new_match, status: :created
   end
+
   def destroy
     found_match = find_match
     head :no_content, status: :no_content
