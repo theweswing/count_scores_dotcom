@@ -3,7 +3,18 @@ class MatchesController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
 
   def index
-    render json: Match.all, include: :players, status: :ok
+    if params[:user_id] && params[:game_id]
+      given_user = User.find(params[:user_id])
+      given_game = Game.find(params[:game_id])
+      all_matches = given_user.matches
+      relevant_matches =
+        all_matches.filter do |given_match|
+          given_match[:game_id] == given_game.id
+        end
+    else
+      relevant_matches = Match.all
+    end
+    render json: relevant_matches, include: :players, status: :ok
   end
 
   def show

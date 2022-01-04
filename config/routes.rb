@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: %i[create update index] do
-    resources :games, only: [:index]
+    resources :games, only: [:index] do
+      resources :matches, only: :index
+    end
   end
 
   post '/signup', to: 'users#create'

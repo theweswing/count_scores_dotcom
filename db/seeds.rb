@@ -176,57 +176,163 @@ g5.matches << m16
 
 #Match 1: Catan
 p1 =
-  Player.create(score: 10, is_winner: true, match_id: m1.id, user_id: tenzin.id)
-p2 = Player.create(score: 9, is_winner: false, match_id: m1.id, user_id: wes.id)
+  Player.create(
+    score: 10,
+    is_winner: true,
+    match_id: m1.id,
+    user_id: tenzin.id,
+    name: "#{tenzin.first_name} #{tenzin.last_name}",
+  )
+p2 =
+  Player.create(
+    score: 9,
+    is_winner: false,
+    match_id: m1.id,
+    user_id: wes.id,
+    name: "#{wes.first_name} #{wes.last_name}",
+  )
 p3 =
-  Player.create(score: 8, is_winner: false, match_id: m1.id, user_id: yuyi.id)
+  Player.create(
+    score: 8,
+    is_winner: false,
+    match_id: m1.id,
+    user_id: yuyi.id,
+    name: "#{yuyi.first_name} #{yuyi.last_name}",
+  )
 p4 =
-  Player.create(score: 7, is_winner: false, match_id: m1.id, user_id: liam.id)
+  Player.create(
+    score: 7,
+    is_winner: false,
+    match_id: m1.id,
+    user_id: liam.id,
+    name: "#{liam.first_name} #{liam.last_name}",
+  )
 
 #Match 2: Catan
 
 p5 =
-  Player.create(score: 10, is_winner: true, match_id: m2.id, user_id: tenzin.id)
-p6 = Player.create(score: 6, is_winner: false, match_id: m2.id, user_id: wes.id)
-p7 = Player.create(score: 8, is_winner: false, match_id: m2.id, user_id: cj.id)
+  Player.create(
+    score: 10,
+    is_winner: true,
+    match_id: m2.id,
+    user_id: tenzin.id,
+    name: "#{tenzin.first_name} #{tenzin.last_name}",
+  )
+p6 =
+  Player.create(
+    score: 6,
+    is_winner: false,
+    match_id: m2.id,
+    user_id: wes.id,
+    name: "#{wes.first_name} #{wes.last_name}",
+  )
+p7 =
+  Player.create(
+    score: 8,
+    is_winner: false,
+    match_id: m2.id,
+    user_id: cj.id,
+    name: "#{cj.first_name} #{cj.last_name}",
+  )
 p8 =
-  Player.create(score: 7, is_winner: false, match_id: m2.id, user_id: ivan.id)
+  Player.create(
+    score: 7,
+    is_winner: false,
+    match_id: m2.id,
+    user_id: ivan.id,
+    name: "#{ivan.first_name} #{ivan.last_name}",
+  )
 
 #Match 3: Catan
 
 p9 =
-  Player.create(score: 8, is_winner: false, match_id: m3.id, user_id: liam.id)
+  Player.create(
+    score: 8,
+    is_winner: false,
+    match_id: m3.id,
+    user_id: liam.id,
+    name: "#{liam.first_name} #{liam.last_name}",
+  )
 p10 =
-  Player.create(score: 10, is_winner: true, match_id: m3.id, user_id: wes.id)
+  Player.create(
+    score: 10,
+    is_winner: true,
+    match_id: m3.id,
+    user_id: wes.id,
+    name: "#{wes.first_name} #{wes.last_name}",
+  )
 p11 =
   Player.create(
     score: 5,
     is_winner: false,
     match_id: m3.id,
     user_id: vanessa.id,
+    name: "#{vanessa.first_name} #{vanessa.last_name}",
   )
 p12 =
-  Player.create(score: 6, is_winner: false, match_id: m3.id, user_id: john.id)
+  Player.create(
+    score: 6,
+    is_winner: false,
+    match_id: m3.id,
+    user_id: john.id,
+    name: "#{john.first_name} #{john.last_name}",
+  )
 
 #Match 13: Basketball
 
 p13 =
-  Player.create(score: 7, is_winner: true, match_id: m13.id, user_id: tenzin.id)
+  Player.create(
+    score: 7,
+    is_winner: true,
+    match_id: m13.id,
+    user_id: tenzin.id,
+    name: "#{tenzin.first_name} #{tenzin.last_name}",
+  )
 p14 =
-  Player.create(score: 3, is_winner: false, match_id: m13.id, user_id: wes.id)
+  Player.create(
+    score: 3,
+    is_winner: false,
+    match_id: m13.id,
+    user_id: wes.id,
+    name: "#{wes.first_name} #{wes.last_name}",
+  )
 
 #Match 14: Basketball
 
 p15 =
-  Player.create(score: 6, is_winner: false, match_id: m14.id, user_id: john.id)
+  Player.create(
+    score: 6,
+    is_winner: false,
+    match_id: m14.id,
+    user_id: john.id,
+    name: "#{john.first_name} #{john.last_name}",
+  )
 p16 =
-  Player.create(score: 7, is_winner: true, match_id: m14.id, user_id: wes.id)
+  Player.create(
+    score: 7,
+    is_winner: true,
+    match_id: m14.id,
+    user_id: wes.id,
+    name: "#{wes.first_name} #{wes.last_name}",
+  )
 
 #Match 15: Basketball
 
 p17 =
-  Player.create(score: 7, is_winner: true, match_id: m15.id, user_id: liam.id)
+  Player.create(
+    score: 7,
+    is_winner: true,
+    match_id: m15.id,
+    user_id: liam.id,
+    name: "#{liam.first_name} #{liam.last_name}",
+  )
 p18 =
-  Player.create(score: 6, is_winner: false, match_id: m15.id, user_id: wes.id)
+  Player.create(
+    score: 6,
+    is_winner: false,
+    match_id: m15.id,
+    user_id: wes.id,
+    name: "#{wes.first_name} #{wes.last_name}",
+  )
 
 print('Finished seeding!')
