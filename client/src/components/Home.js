@@ -60,7 +60,7 @@ const Home = ({ user }) => {
         </div>
       ) : clickFind && !addNew ? (
         <div>
-          <AddNewGame />
+          <AddNewGame user={user} />
         </div>
       ) : null}
     </div>
