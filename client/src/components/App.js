@@ -6,6 +6,7 @@ import SignUp from "./SignUp";
 import Home from "./Home";
 import GamesContainer from "./GameContainer";
 import MatchContainer from "./MatchContainer";
+import HeaderNonUser from "./HeaderNonUser";
 
 const App = () => {
   const [user, setUser] = useState("");
@@ -38,6 +39,7 @@ const App = () => {
   } else {
     return (
       <div className="app">
+        <HeaderNonUser />
         <Switch>
           <Route exact path="/signup">
             <SignUp />
