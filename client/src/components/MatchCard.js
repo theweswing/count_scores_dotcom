@@ -5,8 +5,14 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import IconButton from "@mui/material/IconButton";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import * as React from "react";
 
 const MatchCard = ({ date, players }) => {
+  const [open, setOpen] = React.useState(false);
+
   const mapPlayers = players.map((player) => {
     if (player.is_winner === true) {
       return (
@@ -36,14 +42,29 @@ const MatchCard = ({ date, players }) => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>{`Date of Game: ${date}`}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Players</TableCell>
-            <TableCell>Score</TableCell>
+            <TableCell>
+              <IconButton
+                aria-label="expand row"
+                size="small"
+                onClick={() => setOpen(!open)}
+              >
+                {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+              </IconButton>
+              {`Date of Game: ${date}`}
+            </TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>{mapPlayers}</TableBody>
+
+        {open ? (
+          <TableHead>
+            <TableRow>
+              <TableCell>Players</TableCell>
+              <TableCell>Score</TableCell>
+            </TableRow>
+          </TableHead>
+        ) : null}
+
+        {open ? <TableBody>{mapPlayers}</TableBody> : null}
       </Table>
     </TableContainer>
   );
