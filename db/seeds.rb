@@ -163,10 +163,27 @@ jacob =
   User.create(
     username: 'Tradrienia',
     password_digest: BCrypt::Password.create('sexyjacob'),
-    email: 'jacobmiddleton23@gmail.com ',
+    email: 'jacobmiddleton23@gmail.com',
     first_name: 'Jacob',
     last_name: 'Middleton',
   )
+sarah =
+  User.create(
+    username: 'smuckers',
+    password_digest: BCrypt::Password.create('sexysarah'),
+    email: 'sarah.cohensmith@gmail.com',
+    first_name: 'Sarah',
+    last_name: 'Cohen-Smith',
+  )
+avery =
+  User.create(
+    username: 'ave',
+    password_digest: BCrypt::Password.create('exileavery'),
+    email: 'averysternglass@gmail.com',
+    first_name: 'Avery',
+    last_name: 'Sternglass',
+  )
+
 #GAMES
 g1 = Game.create(name: 'Settlers of Catan')
 g2 = Game.create(name: 'Elkfest')
@@ -174,226 +191,307 @@ g3 = Game.create(name: 'Basketball (21)')
 g4 = Game.create(name: 'The Resistance: Avalon')
 g5 = Game.create(name: 'Basketball (1v1)')
 
-#MATCHES
-
-#Catan
-m1 = Match.create(date: '12/25/2021')
-g1.matches << m1
-
-m2 = Match.create(date: '12/31/2021')
-g1.matches << m2
-
-m3 = Match.create(date: '07/04/2021')
-g1.matches << m3
-
-# Elfkest
-
-m4 = Match.create(date: '10/17/1991')
-g2.matches << m4
-
-m5 = Match.create(date: '10/17/1992')
-g2.matches << m5
-
-m6 = Match.create(date: '10/17/1993')
-g2.matches << m6
-
-#Shuffleboard (are there scores?)
-
-m7 = Match.create(date: '10/17/1994')
-g3.matches << m7
-
-m8 = Match.create(date: '10/17/1995')
-g3.matches << m8
-
-m9 = Match.create(date: '10/17/1996')
-g3.matches << m9
-
-#The Resistance: Avalon
-
-m10 = Match.create(date: '10/17/1997')
-g4.matches << m10
-
-m11 = Match.create(date: '10/17/1998')
-g4.matches << m11
-
-m12 = Match.create(date: '10/17/1999')
-g4.matches << m12
+# #MATCHES
 
 #Basketball 1v1
 
-m13 = Match.create(date: '10/17/2000')
-g5.matches << m13
+m1 = Match.create(date: '11/25/2021')
+g5.matches << m1
 
-m14 = Match.create(date: '10/17/2001')
-g5.matches << m14
+m2 = Match.create(date: '12/21/2021')
+g5.matches << m2
 
-m15 = Match.create(date: '10/17/2001')
-g5.matches << m15
+m3 = Match.create(date: '08/08/2021')
+g5.matches << m3
 
-m16 = Match.create(date: '10/17/2002')
-g5.matches << m16
-
-#PLAYERS
-
-#Match 1: Catan
-p1 =
-  Player.create(
-    score: 10,
-    is_winner: true,
-    match_id: m1.id,
-    user_id: tenzin.id,
-    name: "#{tenzin.first_name} #{tenzin.last_name}",
-  )
-p2 =
-  Player.create(
-    score: 9,
-    is_winner: false,
-    match_id: m1.id,
-    user_id: wes.id,
-    name: "#{wes.first_name} #{wes.last_name}",
-  )
-p3 =
-  Player.create(
-    score: 8,
-    is_winner: false,
-    match_id: m1.id,
-    user_id: yuyi.id,
-    name: "#{yuyi.first_name} #{yuyi.last_name}",
-  )
-p4 =
-  Player.create(
-    score: 7,
-    is_winner: false,
-    match_id: m1.id,
-    user_id: liam.id,
-    name: "#{liam.first_name} #{liam.last_name}",
-  )
-
-#Match 2: Catan
-
-p5 =
-  Player.create(
-    score: 10,
-    is_winner: true,
-    match_id: m2.id,
-    user_id: tenzin.id,
-    name: "#{tenzin.first_name} #{tenzin.last_name}",
-  )
-p6 =
-  Player.create(
-    score: 6,
-    is_winner: false,
-    match_id: m2.id,
-    user_id: wes.id,
-    name: "#{wes.first_name} #{wes.last_name}",
-  )
-p7 =
-  Player.create(
-    score: 8,
-    is_winner: false,
-    match_id: m2.id,
-    user_id: cj.id,
-    name: "#{cj.first_name} #{cj.last_name}",
-  )
-p8 =
-  Player.create(
-    score: 7,
-    is_winner: false,
-    match_id: m2.id,
-    user_id: ivan.id,
-    name: "#{ivan.first_name} #{ivan.last_name}",
-  )
-
-#Match 3: Catan
-
-p9 =
-  Player.create(
-    score: 8,
-    is_winner: false,
-    match_id: m3.id,
-    user_id: liam.id,
-    name: "#{liam.first_name} #{liam.last_name}",
-  )
-p10 =
-  Player.create(
-    score: 10,
-    is_winner: true,
-    match_id: m3.id,
-    user_id: wes.id,
-    name: "#{wes.first_name} #{wes.last_name}",
-  )
-p11 =
-  Player.create(
-    score: 5,
-    is_winner: false,
-    match_id: m3.id,
-    user_id: vanessa.id,
-    name: "#{vanessa.first_name} #{vanessa.last_name}",
-  )
-p12 =
-  Player.create(
-    score: 6,
-    is_winner: false,
-    match_id: m3.id,
-    user_id: john.id,
-    name: "#{john.first_name} #{john.last_name}",
-  )
-
-#Match 13: Basketball
+#Match 13: Basketball 1v1 Players
 
 p13 =
   Player.create(
     score: 7,
     is_winner: true,
-    match_id: m13.id,
+    match_id: m1.id,
     user_id: tenzin.id,
     name: "#{tenzin.first_name} #{tenzin.last_name}",
+    email: "#{tenzin.email}",
   )
 p14 =
   Player.create(
     score: 3,
     is_winner: false,
-    match_id: m13.id,
+    match_id: m1.id,
     user_id: wes.id,
     name: "#{wes.first_name} #{wes.last_name}",
+    email: "#{wes.email}",
   )
 
-#Match 14: Basketball
+#Match 14: Basketball 1v1 Players
 
 p15 =
   Player.create(
-    score: 6,
-    is_winner: false,
-    match_id: m14.id,
-    user_id: john.id,
-    name: "#{john.first_name} #{john.last_name}",
+    score: 7,
+    is_winner: true,
+    match_id: m2.id,
+    user_id: tyler.id,
+    name: "#{tyler.first_name} #{tyler.last_name}",
+    email: "#{tyler.email}",
   )
 p16 =
   Player.create(
-    score: 7,
-    is_winner: true,
-    match_id: m14.id,
+    score: 4,
+    is_winner: false,
+    match_id: m2.id,
     user_id: wes.id,
     name: "#{wes.first_name} #{wes.last_name}",
+    email: "#{wes.email}",
   )
 
-#Match 15: Basketball
+#Match 15: Basketball 1v1 Players
 
 p17 =
   Player.create(
     score: 7,
     is_winner: true,
-    match_id: m15.id,
-    user_id: liam.id,
-    name: "#{liam.first_name} #{liam.last_name}",
+    match_id: m3.id,
+    user_id: tyler.id,
+    name: "#{tyler.first_name} #{tyler.last_name}",
+    email: "#{tyler.email}",
   )
 p18 =
   Player.create(
-    score: 6,
+    score: 2,
     is_winner: false,
-    match_id: m15.id,
-    user_id: wes.id,
-    name: "#{wes.first_name} #{wes.last_name}",
+    match_id: m3.id,
+    user_id: tenzin.id,
+    name: "#{tenzin.first_name} #{tenzin.last_name}",
+    email: "#{tyler.email}",
   )
 
+### SEEDING WITH 70+ REAL GAMES OF CATAN ###
+
+require 'csv'
+
+table = CSV.parse(File.read('./vintage_catan_data.csv'), headers: true)
+
+def gather_dates(dates_column)
+  all_dates = []
+  dates_column.each do |given_column|
+    if given_column != nil
+      split = given_column.split(' ')
+      date = split[0]
+      daymonthyear = date.split('/')
+      if daymonthyear[2].length == 2
+        year = '20' + daymonthyear[2]
+        daymonthyear[2] = year
+        date = "#{daymonthyear[0]}/#{daymonthyear[1]}/#{year}"
+      end
+      all_dates.push(date)
+    end
+  end
+  return all_dates
+end
+
+def gather_date(date_cell)
+  if date_cell != nil
+    split = date_cell.split(' ')
+    date = split[0]
+    daymonthyear = date.split('/')
+    if daymonthyear[0].length == 1
+      day = '0' + daymonthyear[0]
+      daymonthyear[0] = day
+    end
+    if daymonthyear[1].length == 1
+      month = '0' + daymonthyear[1]
+      daymonthyear[1] = month
+    end
+    if daymonthyear[2].length == 2
+      year = '20' + daymonthyear[2]
+      daymonthyear[2] = year
+      date = "#{daymonthyear[0]}/#{daymonthyear[1]}/#{year}"
+    end
+  end
+  return date
+end
+
+def smart_gather_dates(dates_column)
+  all_dates = []
+  dates_column.each do |given_date_cell|
+    date = gather_date(given_date_cell)
+    all_dates.push(date)
+  end
+  return all_dates
+end
+
+def find_user_by_player_name(player)
+  users = User.all
+  player_name = player[:name].downcase
+  users.each do |given_user|
+    user_first_name = given_user[:first_name].downcase
+    if user_first_name == player_name
+      player[:user_id] = given_user.id
+      player[:email] = given_user.email
+      player[:name] = "#{given_user.first_name} #{given_user.last_name}"
+    end
+  end
+  return player
+end
+
+def pull_scores_from_row(table)
+  all_matches = []
+  row_counter = 0
+  dates_column = table.by_col[0]
+  headers = table.headers
+  dates_column.each do |given_row|
+    new_match = Match.create(date: gather_date(given_row), game_id: 1)
+    column_counter = 2
+    while column_counter <= 24
+      operating_column = table.by_col[column_counter]
+      if (operating_column[row_counter] != nil)
+        new_player = {
+          name: table.headers[column_counter],
+          score: operating_column[row_counter],
+          is_winner: false,
+          user_id: 1,
+          email: nil,
+          match_id: new_match.id,
+        }
+        if operating_column[row_counter].to_i >= 10
+          new_player = {
+            name: table.headers[column_counter],
+            score: operating_column[row_counter],
+            is_winner: true,
+            user_id: 1,
+            email: nil,
+            match_id: new_match.id,
+          }
+        end
+        new_player = find_user_by_player_name(new_player)
+        new_player_entry = Player.create(new_player)
+      end
+      column_counter += 1
+    end
+    row_counter += 1
+  end
+end
+
+pull_scores_from_row(table)
+
 print('Finished seeding!')
+
+#### Depreciated seeds
+
+# #PLAYERS
+
+# #Match 1: Catan
+# p1 =
+#   Player.create(
+#     score: 10,
+#     is_winner: true,
+#     match_id: m1.id,
+#     user_id: tenzin.id,
+#     name: "#{tenzin.first_name} #{tenzin.last_name}",
+#   )
+# p2 =
+#   Player.create(
+#     score: 9,
+#     is_winner: false,
+#     match_id: m1.id,
+#     user_id: wes.id,
+#     name: "#{wes.first_name} #{wes.last_name}",
+#   )
+# p3 =
+#   Player.create(
+#     score: 8,
+#     is_winner: false,
+#     match_id: m1.id,
+#     user_id: yuyi.id,
+#     name: "#{yuyi.first_name} #{yuyi.last_name}",
+#   )
+# p4 =
+#   Player.create(
+#     score: 7,
+#     is_winner: false,
+#     match_id: m1.id,
+#     user_id: liam.id,
+#     name: "#{liam.first_name} #{liam.last_name}",
+#   )
+
+# #Match 2: Catan
+
+# p5 =
+#   Player.create(
+#     score: 10,
+#     is_winner: true,
+#     match_id: m2.id,
+#     user_id: tenzin.id,
+#     name: "#{tenzin.first_name} #{tenzin.last_name}",
+#   )
+# p6 =
+#   Player.create(
+#     score: 6,
+#     is_winner: false,
+#     match_id: m2.id,
+#     user_id: wes.id,
+#     name: "#{wes.first_name} #{wes.last_name}",
+#   )
+# p7 =
+#   Player.create(
+#     score: 8,
+#     is_winner: false,
+#     match_id: m2.id,
+#     user_id: cj.id,
+#     name: "#{cj.first_name} #{cj.last_name}",
+#   )
+# p8 =
+#   Player.create(
+#     score: 7,
+#     is_winner: false,
+#     match_id: m2.id,
+#     user_id: ivan.id,
+#     name: "#{ivan.first_name} #{ivan.last_name}",
+#   )
+
+# #Match 3: Catan
+
+# p9 =
+#   Player.create(
+#     score: 8,
+#     is_winner: false,
+#     match_id: m3.id,
+#     user_id: liam.id,
+#     name: "#{liam.first_name} #{liam.last_name}",
+#   )
+# p10 =
+#   Player.create(
+#     score: 10,
+#     is_winner: true,
+#     match_id: m3.id,
+#     user_id: wes.id,
+#     name: "#{wes.first_name} #{wes.last_name}",
+#   )
+# p11 =
+#   Player.create(
+#     score: 5,
+#     is_winner: false,
+#     match_id: m3.id,
+#     user_id: vanessa.id,
+#     name: "#{vanessa.first_name} #{vanessa.last_name}",
+#   )
+# p12 =
+#   Player.create(
+#     score: 6,
+#     is_winner: false,
+#     match_id: m3.id,
+#     user_id: john.id,
+#     name: "#{john.first_name} #{john.last_name}",
+#   )
+
+# #Catan
+# m1 = Match.create(date: '12/25/2021')
+# g1.matches << m1
+
+# m2 = Match.create(date: '12/31/2021')
+# g1.matches << m2
+
+# m3 = Match.create(date: '07/04/2021')
+# g1.matches << m3

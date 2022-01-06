@@ -21,6 +21,7 @@ const MatchContainer = ({ selectedGame, user }) => {
         id={match.id}
         date={match.date}
         players={match.players}
+        user={user}
       />
     );
   });
