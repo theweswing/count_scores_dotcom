@@ -24,7 +24,7 @@ const AddNewGame = ({ user }) => {
       user_id: user.id,
       match_id: null,
       score: null,
-      is_winner: null,
+      is_winner: false,
       name: `${user.first_name} ${user.last_name}`,
     },
   ]);
@@ -182,6 +182,14 @@ const AddNewGame = ({ user }) => {
     console.log(allPlayerEmails);
   };
 
+  const handlePlayerWin = (e) => {
+    const indexValue = parseInt(e.target.name);
+    let playerEntries = [...allPlayers];
+    playerEntries[indexValue].is_winner = !playerEntries[indexValue].is_winner
+    setAllPlayers(playerEntries)
+    console.log(playerEntries)
+  }
+
   const comparePlayerEmails = () => {
     let counter = 0;
     allPlayerEmails.map((givenPlayerEmail) => {
@@ -203,7 +211,7 @@ const AddNewGame = ({ user }) => {
     setAllPlayers([
       ...allPlayers,
       {
-        user_id: 2,
+        user_id: 1,
         match_id: null,
         score: null,
         is_winner: null,
@@ -223,7 +231,7 @@ const AddNewGame = ({ user }) => {
   const spawnPlayers = () => {
     let counter = 0;
     const displayedPlayers = [...allPlayers].map((givenPlayer) => {
-      counter = counter + 1;
+        counter = counter + 1;
       return (
         <>
           <Grid item xs={12}>
@@ -243,7 +251,7 @@ const AddNewGame = ({ user }) => {
               fullWidth
               autoComplete={`player${counter}name`}
               id={`player${counter}name`}
-              label={`Player ${counter} Email (optional)`}
+              label={`Player ${counter} Email (Link score to a friend's account!)`}
               name={`${counter - 1}`}
               onChange={handlePlayerEmail}
             />
@@ -251,7 +259,6 @@ const AddNewGame = ({ user }) => {
 
           <Grid item xs={12}>
             <TextField
-              required
               fullWidth
               autoComplete={`player${counter}score`}
               id={`player${counter}score`}
@@ -261,11 +268,11 @@ const AddNewGame = ({ user }) => {
             />
           </Grid>
           <Grid item xs={12}>
-            <FormControlLabel control={<Checkbox />} label="Winner? 👑" />
+            <FormControlLabel onClick={handlePlayerWin}name={`${counter - 1}`}control={<Checkbox />} label={`👑  Player ${counter} Wins 👑`} />
           </Grid>
         </>
       );
-    });
+      });
     return displayedPlayers;
   };
 
