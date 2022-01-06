@@ -8,24 +8,24 @@ import Paper from "@mui/material/Paper";
 import IconButton from "@mui/material/IconButton";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 
 const MatchCard = ({ date, players, user }) => {
   const [open, setOpen] = useState(false);
-  const [playerWinner,setPlayerWinner] = useState(false)
+  const [playerWinner, setPlayerWinner] = useState(false);
 
   const isSelfWinner = () => {
-    players.map((player) => { 
-      if (player.user_id === user.id && player.is_winner === true){
-        setPlayerWinner(true)
+    players.map((player) => {
+      if (player.user_id === user.id && player.is_winner === true) {
+        setPlayerWinner(true);
       }
-    })
-    console.log(`${date}: Is winner: ${playerWinner}`)
-  }
+    });
+    console.log(`${date}: Is winner: ${playerWinner}`);
+  };
 
   useEffect(() => {
-    isSelfWinner()
-  },[])
+    isSelfWinner();
+  }, []);
 
   const mapPlayers = players.map((player) => {
     if (player.is_winner === true) {
@@ -53,7 +53,7 @@ const MatchCard = ({ date, players, user }) => {
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table sx={{ minWidth: 400 }} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>
@@ -64,7 +64,9 @@ const MatchCard = ({ date, players, user }) => {
               >
                 {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
               </IconButton>
-              {playerWinner ? `👑 Date of Game: ${date} 👑` : `Date of Game: ${date}` }
+              {playerWinner
+                ? `👑 Date of Game: ${date} 👑`
+                : `Date of Game: ${date}`}
             </TableCell>
           </TableRow>
         </TableHead>
