@@ -23,10 +23,18 @@ print('Seeding!')
 # ivan = User.find(9)
 # cj = User.find(10)
 
+admin =
+  User.create(
+    username: 'admin',
+    password_digest: BCrypt::Password.create('fuckoffhackers'),
+    email: 'admin@countscores.com',
+    first_name: 'Wes & Yuyi',
+    last_name: 'The Admins',
+  )
 wes =
   User.create(
     username: 'theweswing',
-    password_digest: BCrypt::Password.create('sexywes'),
+    password_digest: BCrypt::Password.create('sexiestwes'),
     email: 'wschierenbeck@gmail.com',
     first_name: 'Wes',
     last_name: 'Schierenbeck',
@@ -61,15 +69,15 @@ john =
   User.create(
     username: 'tall_cop_john',
     password_digest: BCrypt::Password.create('sexyjohn'),
-    email: 'john.simon@gmail.com',
+    email: 'johnsimon134@gmail.com',
     first_name: 'John',
     last_name: 'Simon',
   )
 vanessa =
   User.create(
-    username: 'hobbit_vanessa',
+    username: 'elf_king_vanessa',
     password_digest: BCrypt::Password.create('sexyvanessa'),
-    email: 'vanessaventola@gmail.com',
+    email: 'Vanessa.m.ventola@gmail.com',
     first_name: 'Vanessa',
     last_name: 'Ventola',
   )
@@ -85,7 +93,7 @@ margo =
   User.create(
     username: 'kitty_margo',
     password_digest: BCrypt::Password.create('sexymargo'),
-    email: 'margo.sun@gmail.com',
+    email: 'mrgosn@gmail.com',
     first_name: 'Margo',
     last_name: 'Sun',
   )
@@ -93,7 +101,7 @@ ivan =
   User.create(
     username: 'Vanya',
     password_digest: BCrypt::Password.create('sexyivan'),
-    email: 'ivan.kelber@gmail.com',
+    email: 'Ivankelber@gmail.com',
     first_name: 'Ivan',
     last_name: 'Kelber',
   )
@@ -101,15 +109,68 @@ cj =
   User.create(
     username: 'tall_cop_cj',
     password_digest: BCrypt::Password.create('sexycj'),
-    email: 'cj_snyder@gmail.com',
+    email: 'csnyder2112@gmail.com',
     first_name: 'CJ',
     last_name: 'Snyder',
   )
 
+katerina =
+  User.create(
+    username: 'katty_patty',
+    password_digest: BCrypt::Password.create('sexykat'),
+    email: 'kpatouri@gmail.com',
+    first_name: 'Katerina',
+    last_name: 'Patouri',
+  )
+
+tyler =
+  User.create(
+    username: 'tall_cop_tyler',
+    password_digest: BCrypt::Password.create('sexytyler'),
+    email: 'tyler.laubach@gmail.com',
+    first_name: 'Tyler',
+    last_name: 'Laubach',
+  )
+
+alec =
+  User.create(
+    username: 'big_brother_alec',
+    password_digest: BCrypt::Password.create('sexyalec'),
+    email: 'aschierenbeck@gmail.com',
+    first_name: 'Alec',
+    last_name: 'Schierenbeck',
+  )
+
+anna =
+  User.create(
+    username: 'little_sister_anna',
+    password_digest: BCrypt::Password.create('chowchow'),
+    email: 'annaschierenbeck@gmail.com',
+    first_name: 'Anna',
+    last_name: 'Schierenbeck',
+  )
+
+daniel =
+  User.create(
+    username: 'daniel_the_virgin_ian',
+    password_digest: BCrypt::Password.create('sexydaniel'),
+    email: 'nicelikemice@gmail.com',
+    first_name: 'Daniel',
+    last_name: 'Fulbrecht',
+  )
+
+jacob =
+  User.create(
+    username: 'Tradrienia',
+    password_digest: BCrypt::Password.create('sexyjacob'),
+    email: 'jacobmiddleton23@gmail.com ',
+    first_name: 'Jacob',
+    last_name: 'Middleton',
+  )
 #GAMES
 g1 = Game.create(name: 'Settlers of Catan')
 g2 = Game.create(name: 'Elkfest')
-g3 = Game.create(name: 'Shuffleboard')
+g3 = Game.create(name: 'Basketball (21)')
 g4 = Game.create(name: 'The Resistance: Avalon')
 g5 = Game.create(name: 'Basketball (1v1)')
 

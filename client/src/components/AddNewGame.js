@@ -26,6 +26,7 @@ const AddNewGame = ({ user }) => {
       score: null,
       is_winner: false,
       name: `${user.first_name} ${user.last_name}`,
+      email: user.email
     },
   ]);
   const [allPlayerEmails, setAllPlayerEmails] = useState([user.email]);
@@ -44,8 +45,9 @@ const AddNewGame = ({ user }) => {
         user_id: user.id,
         match_id: null,
         score: null,
-        is_winner: null,
+        is_winner: false,
         name: `${user.first_name} ${user.last_name}`,
+        email: user.email
       },
     ]);
     setAllPlayerEmails([user.email]);
@@ -179,6 +181,9 @@ const AddNewGame = ({ user }) => {
     let playerEmails = [...allPlayerEmails];
     playerEmails[indexValue] = e.target.value;
     setAllPlayerEmails(playerEmails);
+    let playerEntries = [...allPlayers];
+    playerEntries[indexValue].email = e.target.value;
+    setAllPlayers(playerEntries)
     console.log(allPlayerEmails);
   };
 
@@ -199,6 +204,8 @@ const AddNewGame = ({ user }) => {
         let databaseEmail = givenUser.email;
         if (emailComparison === databaseEmail.toLowerCase()) {
           playerList[counter].user_id = givenUser.id;
+          playerList[counter].email = givenUser.email
+          playerList[counter].name = `${givenUser.first_name} ${givenUser.last_name}`
           console.log(`User Found for ${databaseEmail} at id ${givenUser.id}`);
           setAllPlayers(playerList);
         }
@@ -214,8 +221,9 @@ const AddNewGame = ({ user }) => {
         user_id: 1,
         match_id: null,
         score: null,
-        is_winner: null,
+        is_winner: false,
         name: "",
+        email: ""
       },
     ]);
     setAllPlayerEmails([...allPlayerEmails, ""]);

@@ -41,7 +41,7 @@ class PlayersController < ApplicationController
   end
 
   def player_params
-    params.permit(:user_id, :match_id, :score, :is_winner, :name)
+    params.permit(:user_id, :match_id, :score, :is_winner, :name, :email)
   end
 
   def render_not_found

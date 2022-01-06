@@ -18,7 +18,8 @@ const Home = ({ user }) => {
     fetch(`http://localhost:3000/users/${user.id}/games`)
       .then((res) => res.json())
       .then((gameData) => {
-        setUserGames(gameData);
+        let sortedGames = gameData.sort((a,b) => (a.name > b.name) ? 1 : -1)
+        setUserGames(sortedGames);
         setClickFind((clickFind) => !clickFind);
       });
   };
